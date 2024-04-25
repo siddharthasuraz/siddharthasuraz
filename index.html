@@ -3,99 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>ChatGPT Homepage</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f0f2f5;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
         }
 
-        .login-container {
-            background-color: #800000;
-            padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .login-container h1 {
+        header {
+            background-color: #333;
+            color: #fff;
             text-align: center;
-            margin-bottom: 20px;
-            color: #800000; /* Facebook blue color */
+            padding: 20px 0;
         }
 
-        .form-group {
-            margin-bottom: 20px;
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
         }
 
-        .form-group label {
-            display: block;
-            font-weight: bold;
+        .chat {
+            overflow-y: auto;
+            max-height: 300px;
         }
 
-        .form-group input {
-            width: 100%;
+        .chat-message {
+            background-color: #f2f2f2;
             padding: 10px;
-            border: 1px solid #ddd;
+            margin: 10px 0;
             border-radius: 5px;
-            outline: none;
         }
 
-        .form-group input:focus {
-            border-color: #1877f2; /* Facebook blue color */
+        #user-input {
+            margin-top: 20px;
         }
 
-        .form-group button {
-            width: 100%;
+        #user-input input[type="text"] {
+            width: 70%;
             padding: 10px;
-            background-color: #1877f2; /* Facebook blue color */
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        #user-input button {
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
             border: none;
             border-radius: 5px;
-            color: #fff;
-            font-weight: bold;
             cursor: pointer;
-            transition: background-color 0.3s ease;
         }
 
-        .form-group button:hover {
-            background-color: #146dd6; /* Darker shade of Facebook blue color */
+        #user-input button:hover {
+            background-color: #555;
         }
     </style>
 </head>
 <body>
-    <div class="login-container">
-        <h1>Login</h1>
-        <form id="login-form">
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+    <header>
+        <h1>Welcome to ChatGPT</h1>
+        <p>Your friendly AI assistant</p>
+    </header>
+
+    <div class="container">
+        <section id="chat-box" class="chat">
+            <div class="chat-message">
+                <p>Hello! How can I assist you today?</p>
             </div>
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" placeholder="Enter your password" required>
-            </div>
-            <div class="form-group">
-                <button type="submit">Login</button>
-            </div>
-        </form>
+        </section>
+        <section id="user-input">
+            <input type="text" id="user-input-text" placeholder="Type your message...">
+            <button onclick="sendMessage()">Send</button>
+        </section>
     </div>
 
     <script>
-        document.getElementById('login-form').addEventListener('submit', function(event) {
-            event.preventDefault();
-            // Here you can add JavaScript code to handle form submission
-            // For now, let's just log the form data to the console
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
-            console.log('Email:', email);
-            console.log('Password:', password);
-            // You can redirect the user to another page after login if needed
-        });
+        function sendMessage() {
+            var userInput = document.getElementById("user-input-text").value;
+            var chatBox = document.getElementById("chat-box");
+            var newMessage = document.createElement("div");
+            newMessage.className = "chat-message";
+            newMessage.innerHTML = "<p>" + userInput + "</p>";
+            chatBox.appendChild(newMessage);
+            document.getElementById("user-input-text").value = "";
+        }
     </script>
 </body>
 </html>
