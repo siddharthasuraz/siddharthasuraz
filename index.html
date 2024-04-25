@@ -3,99 +3,99 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Siddhartha Suraz - Portfolio</title>
+    <title>Login</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-image: url('hacker-background.jpg');
-            background-size: cover;
-            color: #fff;
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
         }
 
-        header {
+        .login-container {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .login-container h1 {
             text-align: center;
-            padding: 20px 0;
+            margin-bottom: 20px;
+            color: #1877f2; /* Facebook blue color */
         }
 
-        .container {
-            max-width: 900px;
-            margin: 20px auto;
-            padding: 0 20px;
+        .form-group {
+            margin-bottom: 20px;
         }
 
-        .about-me,
-        .portfolio-item,
-        .contact {
-            background-color: rgba(0, 0, 0, 0.7);
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        .form-group label {
+            display: block;
+            font-weight: bold;
         }
 
-        h1, h2, h3 {
-            margin: 0;
-            padding: 0;
-        }
-
-        ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        footer {
-            text-align: center;
-            padding: 20px 0;
-            position: fixed;
+        .form-group input {
             width: 100%;
-            bottom: 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        .form-group input:focus {
+            border-color: #1877f2; /* Facebook blue color */
+        }
+
+        .form-group button {
+            width: 100%;
+            padding: 10px;
+            background-color: #1877f2; /* Facebook blue color */
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .form-group button:hover {
+            background-color: #146dd6; /* Darker shade of Facebook blue color */
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Siddhartha Suraz</h1>
-        <h2>Welcome to My Portfolio</h2>
-    </header>
-
-    <div class="container">
-        <div class="about-me">
-            <h2>About Me</h2>
-            <p>I am Siddhartha Suraz, a passionate [insert profession/field] with a keen eye for [insert skills/qualities]. With [insert years of experience] of experience in [insert relevant experience], I have honed my skills in [insert key skills/competencies]. My dedication to [insert values/passions] drives me to deliver exceptional results in every project I undertake.</p>
-        </div>
-
-        <div class="portfolio-item">
-            <h2>Portfolio</h2>
-            <h3>Projects</h3>
-            <ul>
-                <li><strong>Project Name:</strong> [Brief description]<br><em>Role:</em> [Your role]<br><em>Description:</em> [Brief project overview]<br><em>Link:</em> [If applicable]</li>
-                <li><strong>Project Name:</strong> [Brief description]<br><em>Role:</em> [Your role]<br><em>Description:</em> [Brief project overview]<br><em>Link:</em> [If applicable]</li>
-            </ul>
-            <h3>Testimonials</h3>
-            <ul>
-                <li>"[Testimonial quote]" - [Client/Colleague Name]</li>
-                <li>"[Testimonial quote]" - [Client/Colleague Name]</li>
-            </ul>
-        </div>
-
-        <div class="contact">
-            <h2>Contact Me</h2>
-            <p>Feel free to reach out to me for collaborations, inquiries, or just to say hello!</p>
-            <ul>
-                <li><strong>Email:</strong> [Your email address]</li>
-                <li><strong>Phone:</strong> [Your phone number]</li>
-                <li><strong>Social Media:</strong> [Links to your social media profiles]</li>
-            </ul>
-        </div>
+    <div class="login-container">
+        <h1>Login</h1>
+        <form id="login-form">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+            </div>
+            <div class="form-group">
+                <button type="submit">Login</button>
+            </div>
+        </form>
     </div>
 
-    <footer>
-        &copy; 2024 Siddhartha Suraz - All rights reserved
-    </footer>
-
     <script>
-        // Any JavaScript code you want to include can go here
+        document.getElementById('login-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            // Here you can add JavaScript code to handle form submission
+            // For now, let's just log the form data to the console
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            console.log('Email:', email);
+            console.log('Password:', password);
+            // You can redirect the user to another page after login if needed
+        });
     </script>
 </body>
 </html>
